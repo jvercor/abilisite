@@ -10,7 +10,7 @@ the tool you are running in. Read it completely before doing anything else.
 A framework for building client websites. It defines rules for design, content,
 and SEO that every page must follow, and templates that define the structure of
 each page type. Your job is either to interview a client and produce a brief,
-or to read a completed brief and build a page.
+or to read a completed brief and build a page or section.
 
 ---
 
@@ -23,12 +23,8 @@ only that section.
 
 ## MODE A — Interview (no website-brief.md exists yet)
 
-Use this mode when there is no `website-brief.md` file at the root of the
-project, or when the user asks you to start a new client project.
-
-Your goal is to collect all the information needed to build the website and
-save it as `website-brief.md`. You do this through a structured conversation
-with the user.
+Use this mode when there is no `website-brief.md` at the root, or when the
+user asks you to start a new client project.
 
 ### Before you start
 
@@ -44,94 +40,141 @@ framework/pages/service.md
 framework/pages/contact.md
 ```
 
-You need to understand what each file requires before you can ask the right
-questions. Do not skip this step.
-
 ### Language
 
-Your first message to the user must ask which language they want to use for
-the interview. Detect it from their first message if they already wrote
-something in a specific language, and suggest that as the default.
+Your first message must ask which language to use. Detect it from the user's
+first message if already written in a specific language and suggest that as
+the default.
 
-Once confirmed, conduct the entire interview in that language. All your
-questions, suggestions, and confirmations must be in that language. The user's
-answers stay in that language. The `website-brief.md` field labels stay in
-English so the building agent can parse them. Field values that came from the
-client go in the session language.
+Conduct the entire interview in the session language. Field labels in
+`website-brief.md` stay in English. Field values from the client go in the
+session language.
 
 ### Interview rules
 
-- Ask one question at a time. Wait for the answer before continuing.
-- After every question, suggest a default answer based on what you know so
-  far. The user can confirm or override it.
-- If you can infer an answer from something the user already told you, do not
-  ask — extract it and move on.
+- One question at a time. Wait for the answer before continuing.
+- Suggest a default with every question.
+- If you can infer an answer from context, extract it and move on.
 - Never ask the user to write their own H1, meta title, or meta description.
-  Those are generated from the brief. Ask for the inputs those rules need
-  (primary keyword, location, business goal), not the outputs.
-- Track what you still need. Before moving to the next topic, check that you
-  have enough to apply the relevant guideline or fill in the relevant template
-  section.
+- Track what you still need before closing each topic.
 
-### Topics to cover — in this order
-
-Work through each topic fully before moving to the next.
+### Topics — cover in this order
 
 **1. Business identity**
 - Business name or brand name
 - What the business does (one or two sentences)
 - Ideal customer (specific — age, situation, need)
-- What makes the business different from competitors
-- Tone for the website (up to three words — e.g. professional, friendly, bold)
+- What makes the business different
+- Tone (up to three words)
 - Words or phrases to avoid
 
 **2. Business goal**
 - The single most important action a visitor should take
-  (call, book, request a quote, buy, sign up, etc.)
 
-**3. SEO**
-- 3 to 5 main keywords (how customers search, not internal jargon)
+**3. Website format — one-page or multi-page**
+
+Present this as a guided choice, not a bare question. Explain both options:
+
+> "Should this be a **one-page website** or a **multi-page website**?
+>
+> **One-page** — everything on a single scrollable page with anchor links.
+> Best for: freelancers, consultants, focused offers (1–3 services), lead
+> generation sites, faster builds.
+>
+> **Multi-page** — each section has its own dedicated page. Best for:
+> businesses with multiple services, strong per-service SEO needs, brands
+> that will grow the site over time.
+>
+> My suggestion: [recommend based on what you know about the business]"
+
+Store the answer as `one-page` or `multi-page` in the brief. This affects
+the entire site map and how templates are applied.
+
+**4. SEO**
+- 3 to 5 main keywords (how customers search)
 - Cities, regions, or countries served
 - Existing domain name (if any)
-- Existing website URL to use as reference (if any)
-- Confirm: are these keywords in the language customers search in?
+- Reference website URL (if any)
+- Confirm keywords are in the language customers search in
 
-**4. Branding and design**
-- Existing brand colors? If yes: hex codes. If no: mood or feeling for colors.
-- Logo? If yes: file format, shape (horizontal / square / stacked), icon-only
-  version available? If no: text-based logo from brand name?
-- Preferred fonts? If yes: heading and body font names. If no: feeling for
-  typography.
+**5. Branding and design**
+- Brand colors? If yes: hex codes. If no: mood for colors.
+- Logo? If yes: format, shape (horizontal/square/stacked), icon version?
+  If no: text-based logo from brand name?
+- Fonts? If yes: heading and body names. If no: feeling for typography.
 
-**5. Services or products**
-- Does the business offer services, products, or both?
-- For each service or product:
-  - Name
-  - Short description (1 to 3 sentences)
-  - Key benefits or features (up to 5)
-  - Specific CTA for this service (if different from the main CTA)
-- Which service is the flagship or most important?
+**6. Home page sections**
 
-**6. Contact information**
-- Primary contact email
-- Primary contact phone number
-- Physical address (and whether to show it on the website)
-- Serves customers in person, online, or both
-- Preferred contact method to highlight
+Tell the client what the home page always includes, then ask about optional
+sections:
+
+> "Every home page includes:
+> - Hero (headline, subtitle, CTA)
+> - About teaser (brief intro linking to About page)
+> - Services (preview of all services)
+> - Closing CTA
+>
+> Would you like to add any optional sections?
+> - Testimonials — quotes from past clients
+> - Gallery — photo grid (work, products, location, team)
+> - Team — photos and names of key people
+> - Stats — key numbers (years in business, clients served, etc.)
+> - FAQ preview — 3 to 5 common questions
+> - Latest blog posts — only if there is a blog
+>
+> My suggestion: [recommend 1–2 based on business type]"
+
+For each selected section, ask what content goes in it and whether that
+content already exists.
+
+**7. Services or products**
+- Services, products, or both?
+- For each: name, description (1–3 sentences), key benefits (up to 5), CTA
+- Which is the flagship?
+
+**8. Images and assets**
+
+Now that you know the sections and services, ask specifically about assets.
+Go through each type one at a time:
+
+- **Logo** — filename? Remind client to save to `assets/images/logo/`
+- **Hero image** — exists? If yes: filename → `assets/images/hero/`.
+  If no: ask — solid color, CSS gradient, or placeholder for later?
+- **Service images** — for each service: image exists? If yes: filename →
+  `assets/images/services/`. If no: placeholder, CSS illustration, or skip?
+- **Gallery images** — only if gallery section selected. How many? Filenames?
+  → `assets/images/gallery/`
+- **Team photos** — only if team section selected. Name, role, filename per
+  person. → `assets/images/team/`
+- **Any other images** the client wants to include
+
+**Rule:** Never assume or invent image paths. If an image is needed and the
+client hasn't confirmed it exists, always ask. Never use placeholder image
+services unless explicitly requested.
+
+**9. Contact information**
+- Primary email
+- Primary phone
+- Physical address (and whether to show it)
+- Serves in person, online, or both
+- Preferred contact method
 - Business hours (if relevant)
 
-**7. Pages needed**
-- Confirm the site map. Suggest: Home, About, one page per service, Contact.
-- Any additional pages needed? (portfolio, FAQ, testimonials, blog, etc.)
+**10. Site map**
+
+If multi-page: confirm pages — suggest Home, About, one per service, Contact.
+Ask about extras (FAQ, portfolio, blog, testimonials page).
+
+If one-page: confirm section order. Suggest: Hero → About → Services →
+[optional sections] → Contact. Ask if they want to reorder or remove anything.
 
 ### When you are done
 
-When you are confident on all seven topics, tell the user:
+Tell the user:
 
 > "I have everything I need. Let me put together your website brief."
 
-Then generate `website-brief.md` using the template below and save it at the
-root of the project.
+Generate `website-brief.md` using the template below and save it at the root.
 
 ---
 
@@ -141,10 +184,13 @@ root of the project.
 # Website Brief
 
 ## Session language
-[Language used in this interview — e.g. English, Spanish, French]
+[e.g. English, Spanish, French]
+
+## Website format
+[one-page or multi-page]
 
 ## Business Identity
-- **Business name**: [client value in session language]
+- **Business name**: [client value]
 - **Tagline / one-sentence description**: [client value]
 - **Target audience**: [client value]
 - **Differentiator**: [client value]
@@ -157,27 +203,48 @@ root of the project.
 - **CTA pattern selected**: [from home page template CTA patterns table]
 
 ## SEO
-- **Primary keyword**: [client value in search language]
+- **Primary keyword**: [client value]
 - **Secondary keywords**: [client values]
 - **Location**: [client value]
 - **Domain**: [client value or "not yet defined"]
 - **Reference website**: [client value or "none"]
 
 ## Branding
-- **Primary color**: [hex code or mood description]
-- **Secondary color**: [hex code or mood description]
+- **Primary color**: [hex code or mood]
+- **Secondary color**: [hex code or mood]
 - **Logo**: [format / shape / icon version: yes or no]
-- **Heading font**: [name or mood description]
-- **Body font**: [name or mood description]
+- **Logo file**: [filename and path, or "not yet provided"]
+- **Heading font**: [name or mood]
+- **Body font**: [name or mood]
+
+## Home page sections
+[In order they should appear]
+1. Hero
+2. About teaser
+3. Services
+4. [Optional: Testimonials — content details]
+5. [Optional: Gallery — number of images, filenames]
+6. Closing CTA
 
 ## Services / Products
-[Repeat this block for each service or product]
+[Repeat for each]
 
 ### [Service name]
 - **Description**: [client value]
 - **Key benefits**: [client value]
 - **CTA**: [client value]
+- **Image**: [filename and path, or "placeholder", or "none"]
 - **Flagship**: yes / no
+
+## Assets
+- **Logo**: assets/images/logo/[filename]
+- **Hero image**: assets/images/hero/[filename] or [CSS fallback]
+- **Service images**:
+  - [Service name]: assets/images/services/[filename]
+- **Gallery**: assets/images/gallery/ — [count] images: [filenames]
+- **Team photos**:
+  - [Name, Role]: assets/images/team/[filename]
+- **Other**: [any additional]
 
 ## Contact
 - **Email**: [client value]
@@ -189,80 +256,91 @@ root of the project.
 - **Business hours**: [client value or "not provided"]
 
 ## Site Map
+[If multi-page:]
 - Home
 - About
-- [Service: name]
 - [Service: name]
 - Contact
 - [Other: name]
 
+[If one-page — sections in order:]
+- Hero
+- About
+- Services
+- [Optional sections]
+- Contact
+
 ## Agent notes
-[Flags, client preferences, or edge cases the building agent should know.
-Examples: "Client confirmed CTA pattern is book appointments. Service
-descriptions are short — apply content guidelines expansion strategy.
-Logo is square format."]
+[Flags, preferences, edge cases. E.g. "One-page format — use anchor links
+for nav. No hero image — use CSS gradient with primary color. Gallery: 8
+images. Service descriptions short — apply content expansion strategy."]
 ```
 
-After saving the file, tell the user it is ready and that they can now ask
-you (or another agent) to build any page.
+After saving, tell the user it is ready and remind them to save image files
+in the correct `assets/` folders before building.
 
 ---
 
-## MODE B — Build a page (website-brief.md exists)
+## MODE B — Build a page or section (website-brief.md exists)
 
-Use this mode when a `website-brief.md` exists at the root and the user asks
-you to build a specific page.
+Use this mode when `website-brief.md` exists and the user asks you to build.
 
-### Reading order — follow every time
-
-Read in this exact order before writing any code:
+### Reading order — every time, no exceptions
 
 ```
 1. framework/INSTRUCTIONS.md
 2. framework/guidelines/design-guidelines.md
 3. framework/guidelines/content-guidelines.md
 4. framework/guidelines/seo-guidelines.md
-5. framework/pages/[relevant template for the page being built]
+5. framework/pages/[relevant template]
 6. website-brief.md
 ```
 
-Do not skip steps. Do not reorder. The guidelines define the rules. The
-template defines the structure. The brief provides the client data.
-
 ### What to output
 
-For each page, produce two files:
-
-- `[page-name].html` — full page markup
-- `[page-name].css` — all styles for that page
+Two files per page:
+- `[page-name].html`
+- `[page-name].css`
 
 File naming:
 - Home → `index.html` / `index.css`
 - About → `about.html` / `about.css`
-- Service pages → slug from the brief (e.g. `web-design.html` / `web-design.css`)
+- Service → slug from brief (e.g. `web-design.html` / `web-design.css`)
 - Contact → `contact.html` / `contact.css`
 
-Build one page per session. Do not attempt to build the entire site at once.
+**If one-page format:** everything goes into `index.html` / `index.css`.
+Use the section list from the brief's Site Map to build the page in order.
+Use anchor `id` attributes on each section for navigation links.
+
+Build one page (or the full one-page site) per session.
+
+### Image handling
+
+All image paths must match exactly what is listed in the brief's Assets
+section. Do not invent paths. Do not use placeholder image services unless
+the brief says so.
+
+If an image is listed as "placeholder" in the brief, output an HTML comment
+and a CSS-styled placeholder div with the correct dimensions for that context:
+`<!-- Placeholder: hero image — replace with assets/images/hero/[filename] -->`
+
+If an image is listed as "none", do not output an image element or placeholder
+for that slot.
 
 ### If something is missing
 
-If the brief is missing information you need and the guidelines do not provide
-a default, ask the user one specific question. Do not guess. Do not ask more
-than one question at a time.
+Ask the user one specific question. Never guess. Never ask more than one
+question at a time.
 
-If the guidelines already define a default for something the brief does not
-specify, apply the default silently and leave a comment in the HTML:
+If the guidelines define a default, apply it silently and comment in the HTML:
 `<!-- Defaulted to guidelines spec: [reason] -->`
 
 ---
 
-## General rules that apply in both modes
+## General rules — both modes
 
 - Never invent client content. If it is not in the brief, ask.
 - Never duplicate content across pages unless the template explicitly allows it.
-- SEO keywords must reflect how customers actually search — not internal
-  language or generic terms.
-- The website language (set in the brief's session language field) must match
-  the `lang` attribute on the HTML `<html>` tag and all user-facing content.
+- The `lang` attribute on `<html>` must match the session language in the brief.
 - Framework files are the source of truth for rules. The brief is the source
-  of truth for client data. When they conflict, ask the user before proceeding.
+  of truth for client data. When they conflict, ask before proceeding.

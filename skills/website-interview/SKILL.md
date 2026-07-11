@@ -40,20 +40,7 @@ Never translate or rewrite guideline files.
 
 **The website-brief.md output uses a split rule:**
 - All field labels, section headers, and agent instructions → English
-  (the building agent reads English)
 - All field values that came from the client → the session language
-  (business name, descriptions, tone, keywords, service names, etc.)
-
-**Example of the split in practice:**
-```
-- **Business name**: Panadería El Buen Pan
-- **Tagline**: El mejor pan artesanal de Buenos Aires
-- **Tone**: cálido, familiar, auténtico
-- **Primary keyword**: panadería artesanal Buenos Aires
-```
-
-This means the agent building the website gets labels it can parse, and
-content that's already in the correct language for the site.
 
 **One exception — SEO keywords:** Ask the user for keywords in the language
 their customers actually search in. For most local businesses this is the
@@ -65,185 +52,240 @@ type into Google — usually [session language], but confirm if different."
 ## Core rules
 
 **One question at a time.** Never stack multiple questions in one message.
-Wait for the answer before continuing. Asking multiple things at once is
-confusing and produces worse answers.
+Wait for the answer before continuing.
 
 **Suggest a default with every question.** After each question, offer your
-recommended answer based on what the client has told you so far and what the
-framework requires. For example: "What tone should the website use? My
-suggestion: Professional and approachable — based on you mentioning you work
-with small business owners."
+recommended answer based on what the client has told you so far.
 
 **If a question can be answered from what the client already told you, don't
-ask it.** Extract the answer from context and move on. Only ask when genuinely
-unknown.
+ask it.** Extract the answer from context and move on.
 
 **Track confidence per topic.** Before closing each topic, check that you
 have enough to apply the relevant guideline or fill in the relevant template
-section. If a gap remains, ask one more focused question. If you're
-confident, move on.
+section.
 
 **Never ask for information that the framework generates itself.** Don't ask
-the client to write their H1 — that's the agent's job. Don't ask for meta
-titles or descriptions — the SEO guidelines generate those. Ask for the
-inputs those rules need (primary keyword, location, business goal), not the
-outputs.
+the client to write their H1 — that's the agent's job. Ask for the inputs
+those rules need (primary keyword, location, business goal), not the outputs.
 
 ---
 
 ## Interview order
 
-Work through these topics in order. Each topic maps directly to what the
-framework needs.
-
 ---
 
 ### TOPIC 1 — Business identity
 
-What you need: everything that feeds the content guidelines (tone, audience,
-mission) and the home page about section.
-
-Questions to cover (one at a time, skip if already known):
+Questions to cover (one at a time):
 
 1. What is the business name or brand name?
 2. In one or two sentences: what does this business do?
 3. Who is the ideal customer? (be specific — age, situation, need)
 4. What makes this business different from competitors?
-5. What tone should the website communicate? (e.g. professional, friendly,
-   bold, elegant — up to three words)
+5. What tone should the website communicate? (up to three words)
 6. Are there any words or phrases to avoid on the website?
-
-When done: you have enough to establish the brand voice and write the about
-section teaser. Move to topic 2.
 
 ---
 
 ### TOPIC 2 — Business goal
 
-What you need: the primary goal that drives the hero CTA and the closing CTA
-pattern on the home page (from the home page template's CTA patterns table).
-
-Questions to cover:
-
-1. What is the single most important action you want a visitor to take when
-   they land on the website? (e.g. call, book, request a quote, buy, sign up)
-
-That's usually enough for this topic. The agent picks the CTA pattern from
-the template — you just need the business goal confirmed.
-
-When done: you know which CTA pattern to select. Move to topic 3.
+1. What is the single most important action you want a visitor to take?
+   (e.g. call, book, request a quote, buy, sign up)
 
 ---
 
-### TOPIC 3 — SEO
+### TOPIC 3 — Website format
 
-What you need: inputs for the SEO guidelines — keywords, location, domain.
+This is a key structural decision. Present it clearly with guidance so the
+client can make an informed choice.
 
-Questions to cover:
+Ask:
+
+> "Should this be a **one-page website** or a **multi-page website**?
+>
+> Here's a quick guide to help you decide:
+>
+> **One-page website** — everything lives on a single scrollable page with
+> anchor links to each section. Best for:
+> - Freelancers, consultants, or personal brands
+> - Businesses with a small, focused offer (1–3 services)
+> - Landing pages or campaign sites
+> - Businesses that mainly want to generate leads or calls
+> - Simpler budgets and faster builds
+>
+> **Multi-page website** — each section has its own dedicated page. Best for:
+> - Businesses with multiple services or products
+> - Companies that need strong individual SEO per service
+> - Businesses where each service has a very different audience
+> - Brands that need an About page, blog, or portfolio
+> - Longer-term sites that will grow over time
+>
+> My suggestion: [recommend based on what the client told you about their
+> business — number of services, goal, audience]"
+
+Once confirmed, store the format as either `one-page` or `multi-page` in the
+brief. This affects how the site map and page templates are applied.
+
+**If one-page:** all sections will live in a single `index.html`. The site map
+becomes a list of sections, not pages. The building agent uses the page
+templates as section guides rather than separate files.
+
+**If multi-page:** standard framework applies — one HTML file per page.
+
+---
+
+### TOPIC 4 — SEO
 
 1. What are the 3 to 5 main keywords that best describe the business or
-   services? (These are how customers search, not internal jargon.)
+   services? (how customers search, not internal jargon)
 2. What cities, regions, or countries does the business serve?
 3. Does the business have an existing domain name? If yes, what is it?
-4. Is there an existing website to use as a reference? If yes, what is
-   the URL?
-
-When done: you have the keyword set and location context the SEO guidelines
-need to construct meta titles, descriptions, H1s, and service link text.
-Move to topic 4.
+4. Is there an existing website to use as a reference? If yes, what is the URL?
 
 ---
 
-### TOPIC 4 — Branding and design
-
-What you need: inputs for the design guidelines — colors, logo, typography.
-
-Questions to cover:
+### TOPIC 5 — Branding and design
 
 1. Does the business have an existing brand color palette?
-   - If yes: ask for the hex codes or RGB values for primary and secondary
-     colors.
-   - If no: ask what feeling or mood the colors should convey. (e.g.
-     trustworthy and calm, bold and energetic, natural and earthy)
+   - If yes: hex codes or RGB values for primary and secondary colors.
+   - If no: what feeling or mood should the colors convey?
 
 2. Does the business have a logo?
    - If yes:
-     a. What format is it in? (SVG preferred, PNG with transparency, WebP)
-     b. What is the shape? (Horizontal/landscape, square, or stacked/portrait)
-     c. Is there an icon-only or symbol-only version for small sizes?
-   - If no: ask if they want a text-based logo generated from the brand name
-     and chosen typography.
+     a. What format? (SVG preferred, PNG with transparency, WebP)
+     b. What shape? (Horizontal/landscape, square, or stacked/portrait)
+     c. Is there an icon-only version for small sizes?
+   - If no: would they like a text-based logo from the brand name?
 
-3. Are there preferred fonts for the website?
-   - If yes: ask for heading and body font names.
-   - If no: ask what feeling the typography should convey. (e.g. modern and
-     clean, classic and elegant, bold and strong)
-
-When done: you have everything the design guidelines need to establish the
-visual language. Move to topic 5.
+3. Are there preferred fonts?
+   - If yes: heading and body font names.
+   - If no: what feeling should the typography convey?
 
 ---
 
-### TOPIC 5 — Services or products
+### TOPIC 6 — Home page sections
 
-What you need: the full service list for the home page services section and
-individual service pages.
+Explain what the home page includes by default, then ask about optional
+sections.
 
-Questions to cover:
+Say:
+
+> "Every home page built with this framework includes these core sections:
+>
+> - **Hero** — headline, subtitle, and main call to action
+> - **About teaser** — a brief introduction that links to the About page
+> - **Services** — a preview of all services with links to their pages
+> - **Closing CTA** — a final call to action at the bottom
+>
+> Would you like to add any of these optional sections?
+>
+> - **Testimonials** — quotes or reviews from past clients
+> - **Gallery** — a grid of photos (work, products, location, team)
+> - **Team** — photos and names of key team members
+> - **Stats** — key numbers (years in business, clients served, projects
+>   completed, etc.)
+> - **FAQ preview** — 3 to 5 common questions with short answers
+> - **Latest blog posts** — links to recent articles (only if there is a blog)
+>
+> My suggestion: [recommend 1–2 based on the business type — e.g. testimonials
+> for service businesses, gallery for visual trades, stats for established
+> companies]"
+
+For each optional section the client selects, ask:
+- What content should go in it? (e.g. how many testimonials, what photos,
+  which stats)
+- Do they already have this content, or does it need to be created?
+
+Store the confirmed section list in the brief as **Home page sections** in the
+order they should appear on the page.
+
+---
+
+### TOPIC 7 — Services or products
 
 1. Does the business offer services, products, or both?
-2. Please list each service or product to feature on the website. For each
-   one, ask:
-   - Name of the service or product
-   - Short description (1 to 3 sentences — expand later using content
-     guidelines if too short)
+2. For each service or product:
+   - Name
+   - Short description (1 to 3 sentences)
    - Key benefits or features (up to 5)
-   - Any specific CTA for this service (e.g. "Request a Quote", "Book Now")
-3. Is there one service considered the most important or flagship offering?
-
-When done: you have the full service inventory the home page template and
-service page templates need. Move to topic 6.
+   - Any specific CTA for this service
+3. Which service is the flagship or most important?
 
 ---
 
-### TOPIC 6 — Contact information
+### TOPIC 8 — Images and assets
 
-What you need: the details that populate the contact page template.
+Now that you know the sections and services, ask specifically about what
+visual assets exist.
 
-Questions to cover:
+Work through each asset type one at a time:
 
-1. Primary contact email address for the website.
+1. **Logo** — already covered in Topic 5 (branding). If confirmed as existing,
+   ask: "What is the filename? Where will you place it in the project?"
+   Remind the client to save it to `assets/images/logo/`.
+
+2. **Hero image** — "Do you have a background or feature image for the hero
+   section?" 
+   - If yes: filename and confirm they will save it to `assets/images/hero/`
+   - If no: ask before proceeding — "Would you prefer a solid color
+     background, a CSS gradient, or should we leave a placeholder for an
+     image you'll add later?"
+
+3. **Service images** — for each service: "Do you have an image for
+   [service name]?"
+   - If yes: filename, save to `assets/images/services/`
+   - If no: ask — "Should we use a placeholder, a CSS illustration, or skip
+     the image for this service?"
+
+4. **Gallery images** — only ask if the client selected the gallery section.
+   "How many photos do you have for the gallery? What are the filenames?"
+   Remind them to save all gallery images to `assets/images/gallery/`.
+
+5. **Team photos** — only ask if the client selected the team section.
+   For each team member: name, role, photo filename.
+   Save to `assets/images/team/`.
+
+6. **Any other images** — "Are there any other images you want on the website
+   that we haven't covered?"
+
+**Rule for missing images:** Never assume or invent image paths. If an image
+is needed for a section and the client has not confirmed it exists, always ask
+before continuing. Do not use placeholder services (like picsum.photos) unless
+the client explicitly requests them.
+
+Store all confirmed assets in the brief under **Assets**, with filenames and
+their assigned folder paths.
+
+---
+
+### TOPIC 9 — Contact information
+
+1. Primary contact email.
 2. Primary contact phone number.
-3. Physical address — if yes, should it be visible on the website?
-4. Do they serve customers in person, online, or both?
-5. Preferred contact method to highlight (email, phone, form, WhatsApp, etc.)
-6. Business hours (if relevant to show on the website).
-
-When done: you have everything the contact page template needs. Move to
-topic 7.
+3. Physical address — and whether to show it on the website.
+4. Serves customers in person, online, or both.
+5. Preferred contact method to highlight.
+6. Business hours (if relevant).
 
 ---
 
-### TOPIC 7 — Pages needed
+### TOPIC 10 — Site map
 
-What you need: the final list of pages to generate, so you know which
-templates to apply.
+**If multi-page:**
+Confirm the full list of pages. Suggest: Home, About, one page per service,
+Contact. Ask if anything is missing or should be removed. Ask about any
+additional pages (portfolio, FAQ, testimonials, blog).
 
-Questions to cover:
-
-1. Which pages does the website need? Suggest: Home, About, one page per
-   service, Contact. Ask if anything is missing or should be removed.
-2. Are there any pages that need special content not covered by the standard
-   templates? (e.g. a portfolio, testimonials page, FAQ, blog)
-
-When done: you have the full site map. Move to closing.
+**If one-page:**
+Confirm the full list of sections in order. The sections are: Hero, About,
+Services, [any optional sections selected in Topic 6], Contact. Ask if the
+client wants to adjust the order or remove anything.
 
 ---
 
 ## Closing the interview
 
-When you're confident on all seven topics — meaning you could apply every
-relevant guideline and fill in every template section — say:
+When you are confident on all topics, say:
 
 > "I have everything I need. Let me put together your website brief."
 
@@ -253,12 +295,14 @@ Then generate `website-brief.md` using the structure below.
 
 ## Output: website-brief.md
 
-This file is what the agent reads to build the website. It must be complete,
-specific, and structured so an agent can apply every guideline and template
-without needing to ask further questions.
-
 ```markdown
 # Website Brief
+
+## Session language
+[Language used in this interview]
+
+## Website format
+[one-page or multi-page]
 
 ## Business Identity
 - **Business name**: ...
@@ -267,7 +311,7 @@ without needing to ask further questions.
 - **Differentiator**: ...
 - **Tone**: ...
 - **Words to avoid**: ...
-- **Language / region**: ...
+- **Region / country**: ...
 
 ## Business Goal
 - **Primary visitor action**: ...
@@ -283,46 +327,77 @@ without needing to ask further questions.
 ## Branding
 - **Primary color**: ...
 - **Secondary color**: ...
-- **Logo**: [format, shape, icon version available?]
+- **Logo**: [format / shape / icon version: yes or no]
+- **Logo file**: [filename and path, or "not yet provided"]
 - **Heading font**: ...
 - **Body font**: ...
 
+## Home page sections
+[In the order they should appear on the page]
+1. Hero
+2. About teaser
+3. Services
+4. [Optional section: e.g. Testimonials]
+   - Content: [what the client provided]
+5. [Optional section: e.g. Gallery]
+   - Content: [number of images, filenames]
+6. Closing CTA
+
 ## Services / Products
-For each service:
-- **Name**: ...
+[Repeat for each service]
+
+### [Service name]
 - **Description**: ...
 - **Key benefits**: ...
 - **CTA**: ...
-- **Flagship?**: yes / no
+- **Image**: [filename and path, or "placeholder", or "none"]
+- **Flagship**: yes / no
+
+## Assets
+- **Logo**: assets/images/logo/[filename] — [format, shape]
+- **Hero image**: assets/images/hero/[filename] — or [CSS color/gradient/placeholder]
+- **Service images**:
+  - [Service name]: assets/images/services/[filename]
+- **Gallery**: assets/images/gallery/[filenames] — [count] images
+- **Team photos**:
+  - [Name, Role]: assets/images/team/[filename]
+- **Other**: [any additional assets]
 
 ## Contact
 - **Email**: ...
 - **Phone**: ...
 - **Address**: ...
+- **Show address on website**: yes / no
 - **Serves**: in person / online / both
 - **Preferred contact method**: ...
 - **Business hours**: ...
 
 ## Site Map
-Pages to generate:
+[If multi-page — list pages:]
 - Home
 - About
-- [Service: ...]
-- [Service: ...]
+- [Service: name]
 - Contact
-- [Other: ...]
+- [Other: name]
+
+[If one-page — list sections in order:]
+- Hero
+- About
+- Services
+- [Optional sections]
+- Contact
 
 ## Agent notes
-[Any flags, client preferences, or edge cases the agent should know about
-before starting to build. For example: "Client confirmed CTA pattern is
-'book appointments'. Service descriptions are short — apply content
-guidelines expansion strategy." ]
+[Flags, preferences, edge cases. Examples: "One-page format — use anchor
+links for navigation. Client has no hero image — use CSS gradient with
+primary color. Gallery has 8 images. Service descriptions are short — apply
+content guidelines expansion strategy."]
 ```
 
-Save the file as `website-brief.md` in the project root.
+Save as `website-brief.md` at the root of the project.
 
 After presenting the brief, tell the client:
 
-> "Your website brief is ready. Share this file with the agent that will
-> build your website. It has everything it needs to apply the design,
-> content, and SEO guidelines and generate each page."
+> "Your website brief is ready. You can now ask the agent to build any
+> section or page. Make sure your image files are saved in the correct
+> folders under assets/ before the agent starts building."
