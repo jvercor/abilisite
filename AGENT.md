@@ -152,6 +152,11 @@ Go through each type one at a time:
 client hasn't confirmed it exists, always ask. Never use placeholder image
 services unless explicitly requested.
 
+When confirming a filename with the client, always mention that the folder
+already exists in the project — they just need to drop the file in. Example:
+"Save it to `assets/images/hero/` — that folder is already created in the
+project, just drop your file in there."
+
 **9. Contact information**
 - Primary email
 - Primary phone
@@ -170,7 +175,31 @@ If one-page: confirm section order. Suggest: Hero → About → Services →
 
 ### When you are done
 
-Tell the user:
+Before closing, output a clear asset checklist of every image file the client
+needs to place before building starts. Format it like this:
+
+> "Before we start building, make sure these files are in your project:
+>
+> **Logo**
+> - `assets/images/logo/logo.svg`
+>
+> **Hero**
+> - `assets/images/hero/hero.jpg`
+>
+> **Services**
+> - `assets/images/services/landscaping.jpg`
+> - `assets/images/services/garden-design.jpg`
+>
+> **Gallery** *(if applicable)*
+> - `assets/images/gallery/photo-1.jpg` ... *(8 files)*
+>
+> All these folders already exist in your project — just drop the files in.
+> Filenames must match exactly, including the extension."
+
+Only list the assets the client confirmed exist. If something is a placeholder
+or none, leave it off the checklist.
+
+Then tell the user:
 
 > "I have everything I need. Let me put together your website brief."
 
