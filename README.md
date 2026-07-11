@@ -1,23 +1,72 @@
-# Website Generation Framework
+# Abilisite
 
-A markdown-based framework for building client websites with AI agents.
-Define the rules once. Interview any client. Generate consistent, SEO-optimized
-HTML pages every time.
+A markdown-based framework for building client websites with AI agents — works
+with Claude, GitHub Copilot, Cursor, Gemini CLI, and any other AI tool that
+can read files.
+
+Define the rules once. Interview any client. Build consistent, SEO-optimized
+pages every time.
 
 ---
 
 ## How it works
 
-This framework has two parts:
+Abilisite has two steps:
 
-**The interview** — an AI skill that asks the client structured questions and
-produces a `website-brief.md` with all the information needed to build the
-site.
+**1. Interview** — an AI agent asks the client structured questions about their
+business, brand, SEO, services, and pages needed. The result is a
+`website-brief.md` file that captures everything.
 
-**The builder** — an AI agent that reads the framework guidelines and the
-client brief, then generates one HTML + CSS page per session.
+**2. Build** — a separate AI agent reads the brief, the design guidelines, the
+SEO rules, and the relevant page template, then outputs clean HTML and CSS for
+that page. One page per session.
 
-You run the interview once per client. You run the builder once per page.
+The framework files never change between clients. Only `website-brief.md`
+changes.
+
+---
+
+## Works with any AI tool
+
+Abilisite is tool-agnostic. The `AGENT.md` file at the root tells any AI agent
+how to run the interview and how to build pages — no setup required beyond
+pointing your agent at the project files.
+
+| Tool | How to use |
+|---|---|
+| Claude (claude.ai) | Use the included `/grill-website` skill for the best interview experience, or use `AGENT.md` directly |
+| GitHub Copilot | Point Copilot at `AGENT.md` to start |
+| Cursor | Open the project and reference `AGENT.md` in your prompt |
+| Gemini CLI | Point the agent at `AGENT.md` |
+| Any other AI tool | Same — `AGENT.md` is the universal entry point |
+
+---
+
+## Installation
+
+No package manager needed. Clone the repo directly into your project folder.
+
+**Starting a new project:**
+
+```bash
+git clone https://github.com/jvercor/abilisite.git my-client-project
+cd my-client-project
+```
+
+**Adding to an existing project:**
+
+```bash
+cd your-existing-project
+git remote add abilisite https://github.com/jvercor/abilisite.git
+git fetch abilisite
+git merge abilisite/main --allow-unrelated-histories
+```
+
+**Getting updates when the framework improves:**
+
+```bash
+git pull origin main
+```
 
 ---
 
@@ -25,11 +74,12 @@ You run the interview once per client. You run the builder once per page.
 
 ```
 /
-├── README.md                  ← you are here
-├── website-brief.md           ← generated per client, not committed to repo
+├── README.md                     ← you are here
+├── AGENT.md                      ← universal entry point for any AI agent
+├── website-brief.md              ← generated per client (add to .gitignore)
 │
 ├── framework/
-│   ├── INSTRUCTIONS.md        ← agent reads this before building any page
+│   ├── INSTRUCTIONS.md           ← building agent reads this before every page
 │   ├── guidelines/
 │   │   ├── design-guidelines.md
 │   │   ├── content-guidelines.md
@@ -40,7 +90,7 @@ You run the interview once per client. You run the builder once per page.
 │       ├── service.md
 │       └── contact.md
 │
-└── skills/
+└── skills/                       ← Claude-specific enhancement (optional)
     ├── grill-website/
     │   └── SKILL.md
     └── website-interview/
@@ -49,76 +99,82 @@ You run the interview once per client. You run the builder once per page.
 
 ---
 
-## Getting started
+## Quickstart
 
-### 1. Clone the repository
+### Using any AI tool
 
-```bash
-git clone https://github.com/your-username/website-framework.git
-cd website-framework
-```
-
-### 2. Open a new Claude project
-
-Create a new project in Claude and upload or sync the repository files.
-The `framework/` and `skills/` folders must be available to the agent.
-
-### 3. Run the client interview
-
-Start a new chat inside the project and type:
+Open your project in your preferred AI tool and say:
 
 ```
-/grill-website
+Read AGENT.md and start the client interview.
 ```
 
-The agent will ask you which language you want to use, then walk you through
-a structured interview covering the business, branding, SEO, services, and
-pages needed. At the end it generates a `website-brief.md` file.
+The agent will ask which language to use, then walk through seven topics:
+business identity, business goal, SEO, branding, services, contact info, and
+pages needed. At the end it saves `website-brief.md`.
 
-Save that file at the root of your project.
-
-### 4. Build a page
-
-Start a new chat inside the same project and tell the agent which page to
-build:
+To build a page:
 
 ```
-Build the home page using the website brief.
+Read AGENT.md and build the home page using the website brief.
 ```
 
-The agent reads `INSTRUCTIONS.md`, the relevant guidelines, the page
-template, and the `website-brief.md`, then outputs the HTML and CSS files
-for that page.
+### Using Claude (claude.ai)
 
-Repeat for each page in the site map.
+For the best experience, use the included skills:
+
+1. Create a new Claude project and add the framework files to it
+2. Start a new chat and type `/grill-website`
+3. The agent asks one question at a time, suggests defaults, and generates
+   `website-brief.md` when done
+4. Start a new chat and say `Build the home page using the website brief`
+
+Repeat step 4 for each page in the site map.
+
+---
+
+## .gitignore recommendation
+
+Add these to your project's `.gitignore` so client-specific files don't mix
+with the framework:
+
+```
+website-brief.md
+*.html
+*.css
+```
 
 ---
 
 ## Adding a new client
 
-1. Start a new Claude project (or clear the current `website-brief.md`)
-2. Run `/grill-website` again
-3. Save the new `website-brief.md`
-4. Build pages as above
+1. Delete or archive the previous `website-brief.md`
+2. Run the interview again
+3. Build pages from the new brief
 
-The framework files never change between clients. Only `website-brief.md`
-changes.
+The framework files stay the same across every client.
 
 ---
 
-## Adding new page types
+## Extending the framework
 
-To support a new type of page (e.g. a portfolio page or FAQ page):
+**New page type** (e.g. portfolio, FAQ, blog):
+1. Create a template in `framework/pages/` following the same structure as
+   the existing ones
+2. Add it to the site map topic in `skills/website-interview/SKILL.md` and
+   in `AGENT.md`
+3. Reference it in `framework/INSTRUCTIONS.md`
 
-1. Create a new template file in `framework/pages/` following the same
-   structure as the existing templates
-2. Add the page type to the site map section of `website-interview/SKILL.md`
-   so the interview knows to ask about it
-3. Reference the new template in `INSTRUCTIONS.md` under the reading order
+**New guideline** (e.g. accessibility rules, animation principles):
+1. Create a new file in `framework/guidelines/`
+2. Add it to the reading order in `framework/INSTRUCTIONS.md` and `AGENT.md`
 
 ---
 
 ## Contributing
 
-Pull requests welcome. If you add a new guideline or page template, make
-sure `INSTRUCTIONS.md` is updated to reference it.
+Pull requests are welcome. If you improve a guideline, fix a template, or add
+a new page type, please update `INSTRUCTIONS.md` and `AGENT.md` to reflect
+the change so both Claude and non-Claude users benefit.
+
+Open an issue first if you want to discuss a bigger change before building it.
