@@ -90,12 +90,47 @@ git pull origin main
 │       ├── service.md
 │       └── contact.md
 │
+├── assets/                       ← client images and media go here
+│   └── images/
+│       ├── logo/                 ← logo files (SVG, PNG)
+│       ├── hero/                 ← hero section background or feature image
+│       ├── services/             ← one image per service or product
+│       ├── gallery/              ← gallery photos if the site has a gallery
+│       └── team/                 ← team member photos for the About page
+│
 └── skills/                       ← Claude-specific enhancement (optional)
     ├── grill-website/
     │   └── SKILL.md
     └── website-interview/
         └── SKILL.md
 ```
+
+Each `assets/images/` subfolder contains a `.gitkeep` file so the folder
+structure is preserved in Git even before any images are added. You can
+delete these files once you add real images — or leave them, they do nothing.
+
+---
+
+## Adding client images
+
+The interview will tell you exactly which files are needed and where to put
+them. As a general rule:
+
+| Image type | Folder |
+|---|---|
+| Logo | `assets/images/logo/` |
+| Hero background or feature image | `assets/images/hero/` |
+| Service or product photos | `assets/images/services/` |
+| Gallery photos | `assets/images/gallery/` |
+| Team member photos | `assets/images/team/` |
+
+**Important:** the building agent references image paths exactly as recorded
+in `website-brief.md`. Make sure filenames match exactly — including the
+extension and capitalisation. If the brief says `assets/images/hero/hero.jpg`,
+the file must be named `hero.jpg`, not `Hero.JPG` or `hero.jpeg`.
+
+The interview produces a full asset checklist at the end. Place all files
+in the correct folders before asking the agent to start building.
 
 ---
 
