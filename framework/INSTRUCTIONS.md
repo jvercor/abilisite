@@ -38,16 +38,18 @@ Read the files in this exact order before writing a single line of code.
 Skipping steps will produce output that violates the client's brand or breaks
 SEO rules.
 
-### Step 1 — Read the guidelines (all three, every time)
+### Step 1 — Read the guidelines (all four, every time)
 
 ```
 /framework/guidelines/design-guidelines.md
+/framework/guidelines/creative-direction.md
 /framework/guidelines/content-guidelines.md
 /framework/guidelines/seo-guidelines.md
 ```
 
 These apply to every page. Read them fully. They define:
 - Colors, typography, spacing, logo rules, responsive behavior
+- How to turn the brief's Creative Direction (motif, style dials, anti-references) into a distinctive, non-generic design
 - Writing tone, CTA copy rules, content expansion strategy
 - Meta title and description rules, H1/H2 keyword placement, alt text
 
@@ -77,6 +79,10 @@ contact details, and so on.
 Cross-reference as you go: if the design guidelines say "use the primary
 color for buttons" and the brief says "primary color: #2C5F2E", use
 #2C5F2E for buttons.
+
+The brief's **Creative Direction** section is a hard requirement. Apply it
+as described in `creative-direction.md`; accessibility and SEO rules in the
+other guidelines still take precedence.
 
 ---
 
@@ -156,6 +162,9 @@ Before delivering your output, verify every item on this list:
   design guidelines logo section)
 - [ ] Logo links to the home page
 - [ ] Layout is mobile-first and tested at 375px, 768px, and 1200px
+- [ ] Creative direction quality gate in `creative-direction.md` passes
+  (motif in 3+ roles, style dials in `:root`, varied layout rhythm, one
+  signature section, anti-references avoided)
 
 **Content**
 - [ ] Tone matches the brief's tone field
@@ -178,4 +187,5 @@ Before delivering your output, verify every item on this list:
 - Do not use CSS frameworks (Bootstrap, Tailwind, etc.)
 - Do not add JavaScript unless the brief explicitly requires it
 - Do not invent client content — if it's not in the brief, ask
+- Do not fall back on generic layouts or default styling when the brief's Creative Direction gives you a specific alternative
 - Do not reuse content across pages unless the template explicitly allows it

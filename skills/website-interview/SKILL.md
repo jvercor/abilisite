@@ -163,7 +163,103 @@ templates as section guides rather than separate files.
 
 ---
 
-### TOPIC 6 — Home page sections
+### TOPIC 6 — Creative direction
+
+This topic exists because colors, a logo, and a font are not enough to make a
+website feel like *this* business. Without more, the building agent falls back
+on generic patterns. Your job here is to extract concrete, personal, visual
+raw material and turn it into a creative concept.
+
+**How to ask:** clients rarely know how to describe design. Never ask "what
+style do you want?". Ask concrete questions about their business, give 2–3
+examples with each, and always offer a suggested answer based on what you
+already know. If the client says "I don't know", propose three options derived
+from their earlier answers and let them pick. Skip any question already
+answered earlier in the interview. The one-question-at-a-time rule still
+applies (question 4 is a single structured exercise).
+
+Questions (one at a time):
+
+1. **Signature shape or symbol.** (Different from the technical logo format
+   in Topic 5.)
+   > "Is there a shape, symbol, or pattern that is unmistakably part of your
+   > brand? It could be in your logo, your packaging, your shop, or simply
+   > something people associate with you — for example a leaf curve, a
+   > hexagon, an arch, a wave, a tool outline, a stitch pattern."
+   If the client has none: "Is there an object, tool, material, or place so
+   tied to your business that people recognize it instantly?" (e.g. a
+   chisel, a window arch, a coffee bean, a trail marker).
+   If the client has a file for it, ask them to save it to
+   `assets/images/brand/` and record the filename.
+
+2. **Personal story hook.**
+   > "Is there something personal or specific about how this business began —
+   > a place, a person, a ritual, a moment — that you'd want visitors to feel
+   > when they land on the site?"
+
+3. **Space and material metaphor.**
+   > "If your business were a physical space, what would it feel like to walk
+   > into? For example: a sunlit workshop, a quiet library, a lively market,
+   > a clean modern clinic. And what materials or textures come to mind —
+   > wood, stone, linen, glass, paper, metal?"
+
+4. **Style dials.** Present five pairs and ask the client to pick a side
+   (or "balanced") for each. Suggest a default for each pair from the tone
+   they gave in Topic 1.
+   - **Classic** ↔ **Modern**
+   - **Playful** ↔ **Serious**
+   - **Minimal** ↔ **Rich** (layered, textured, detailed)
+   - **Warm** ↔ **Cool**
+   - **Organic** (curves, flowing) ↔ **Geometric** (lines, angles)
+
+5. **References and anti-references.**
+   > "Name up to three websites, brands, shops, or even packaging that you
+   > find beautiful — they don't need to be in your industry — and tell me
+   > what specifically you like about each (colors, layout, mood, photos,
+   > typography)."
+   Then:
+   > "What would make you say 'this looks like every other website in my
+   > industry'? Is there a competitor or a style you want to avoid
+   > resembling?"
+
+6. **Imagery style.**
+   > "What kind of visuals should carry the site: real photography,
+   > illustration, graphic shapes and patterns, or mostly typography? And
+   > what should the images feel like — candid and documentary, polished
+   > studio, bright and airy, dark and moody?"
+
+7. **First impression.**
+   > "In the first five seconds, what should a visitor feel or remember?
+   > Describe it in a few words or one image."
+
+**Synthesis and playback (required before closing this topic).** Do not
+simply store the answers. Combine them into a creative concept and read it
+back to the client in the session language:
+
+> "Here is the creative direction I will give the design agent:
+>
+> - **Concept**: [one sentence tying the brand story, motif, and metaphor
+>   together]
+> - **Signature motif**: [shape/symbol] — to be used in [e.g. section
+>   dividers, image shapes, icons, backgrounds]
+> - **Shape language**: [e.g. soft arches and rounded corners / sharp
+>   angular lines / flowing curves]
+> - **Design principles**: [three short rules, e.g. 'generous whitespace',
+>   'warm textures over flat color', 'big type, few words']
+> - **Avoid**: [anti-references]
+>
+> Does this feel like your business? What would you change?"
+
+Revise until the client confirms. If the client cannot provide a motif at
+all, derive one from the story, material, or object answers and state it
+clearly so the client can accept or reject it.
+
+Store the confirmed result in the brief's **Creative Direction** section.
+The building agent will treat it as a hard requirement.
+
+---
+
+### TOPIC 7 — Home page sections
 
 Explain what the home page includes by default, then ask about optional
 sections.
@@ -201,7 +297,7 @@ order they should appear on the page.
 
 ---
 
-### TOPIC 7 — Services or products
+### TOPIC 8 — Services or products
 
 1. Does the business offer services, products, or both?
 2. For each service or product:
@@ -213,14 +309,14 @@ order they should appear on the page.
 
 ---
 
-### TOPIC 8 — Images and assets
+### TOPIC 9 — Images and assets
 
 Now that you know the sections and services, ask specifically about what
 visual assets exist.
 
 Work through each asset type one at a time:
 
-1. **Logo** — already covered in Topic 5 (branding). If confirmed as existing,
+1. **Logo** — already covered in Topic 5 (branding); the creative motif is covered in Topic 6. If confirmed as existing,
    ask: "What is the filename? Where will you place it in the project?"
    Remind the client to save it to `assets/images/logo/`.
 
@@ -245,7 +341,11 @@ Work through each asset type one at a time:
    For each team member: name, role, photo filename.
    Save to `assets/images/team/`.
 
-6. **Any other images** — "Are there any other images you want on the website
+6. **Brand assets** — only if the client mentioned a motif file, pattern,
+   texture, or reference images in Topic 6. Filenames, save to
+   `assets/images/brand/`.
+
+7. **Any other images** — "Are there any other images you want on the website
    that we haven't covered?"
 
 **Rule for missing images:** Never assume or invent image paths. If an image
@@ -258,7 +358,7 @@ their assigned folder paths.
 
 ---
 
-### TOPIC 9 — Contact information
+### TOPIC 10 — Contact information
 
 1. Primary contact email.
 2. Primary contact phone number.
@@ -269,7 +369,7 @@ their assigned folder paths.
 
 ---
 
-### TOPIC 10 — Site map
+### TOPIC 11 — Site map
 
 **If multi-page:**
 Confirm the full list of pages. Suggest: Home, About, one page per service,
@@ -278,7 +378,7 @@ additional pages (portfolio, FAQ, testimonials, blog).
 
 **If one-page:**
 Confirm the full list of sections in order. The sections are: Hero, About,
-Services, [any optional sections selected in Topic 6], Contact. Ask if the
+Services, [any optional sections selected in Topic 7], Contact. Ask if the
 client wants to adjust the order or remove anything.
 
 ---
@@ -332,6 +432,28 @@ Then generate `website-brief.md` using the structure below.
 - **Heading font**: ...
 - **Body font**: ...
 
+## Creative Direction
+- **Creative concept**: [one sentence confirmed with the client]
+- **Signature motif**: [shape/symbol/object] — source: [logo / brand / object
+  / derived from story]
+- **Motif file**: [assets/images/brand/filename, or "build with CSS/SVG
+  geometry"]
+- **Personal story hook**: ...
+- **Space / material metaphor**: ...
+- **Shape language**: ...
+- **Style dials**: Era: classic / modern / balanced · Mood: playful /
+  serious / balanced · Richness: minimal / rich / balanced · Temperature:
+  warm / cool / balanced · Form: organic / geometric / balanced
+- **References**: [URL or name — what specifically the client likes]
+- **Anti-references**: [looks, competitors, or patterns to avoid]
+- **Imagery style**: [photography / illustration / graphic / type-led]
+- **Image mood**: ...
+- **First impression**: ...
+- **Design principles**:
+  1. ...
+  2. ...
+  3. ...
+
 ## Home page sections
 [In the order they should appear on the page]
 1. Hero
@@ -361,6 +483,7 @@ Then generate `website-brief.md` using the structure below.
 - **Gallery**: assets/images/gallery/[filenames] — [count] images
 - **Team photos**:
   - [Name, Role]: assets/images/team/[filename]
+- **Brand assets**: assets/images/brand/[filename] — [motif, pattern, texture, or reference image]
 - **Other**: [any additional assets]
 
 ## Contact
@@ -391,7 +514,8 @@ Then generate `website-brief.md` using the structure below.
 [Flags, preferences, edge cases. Examples: "One-page format — use anchor
 links for navigation. Client has no hero image — use CSS gradient with
 primary color. Gallery has 8 images. Service descriptions are short — apply
-content guidelines expansion strategy."]
+content guidelines expansion strategy. Motif has no SVG — build it with CSS
+geometry and flag it as simplified."]
 ```
 
 Save as `website-brief.md` at the root of the project.

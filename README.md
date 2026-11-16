@@ -24,6 +24,19 @@ that page. One page per session.
 The framework files never change between clients. Only `website-brief.md`
 changes.
 
+### Avoiding generic websites
+
+The interview includes a **creative direction** step that goes beyond colors
+and fonts. It asks about the client's signature shape or symbol, personal
+story, the space and materials their brand evokes, five style dials (classic ↔
+modern, playful ↔ serious, minimal ↔ rich, warm ↔ cool, organic ↔ geometric),
+references and anti-references, imagery style, and the first impression a
+visitor should get. The agent turns the answers into a creative concept,
+reads it back for the client's approval, and saves it in the brief.
+`framework/guidelines/creative-direction.md` then tells the build agent how to
+apply it: using the motif in several roles, varying layout rhythm, adding a
+signature section, and avoiding generic patterns.
+
 ---
 
 ## Works with any AI tool
@@ -82,6 +95,7 @@ git pull origin main
 │   ├── INSTRUCTIONS.md           ← building agent reads this before every page
 │   ├── guidelines/
 │   │   ├── design-guidelines.md
+│   │   ├── creative-direction.md
 │   │   ├── content-guidelines.md
 │   │   └── seo-guidelines.md
 │   └── pages/
@@ -94,6 +108,7 @@ git pull origin main
 │   └── images/
 │       ├── logo/                 ← logo files (SVG, PNG)
 │       ├── hero/                 ← hero section background or feature image
+│       ├── brand/                ← motif SVGs, patterns, textures, reference images
 │       ├── services/             ← one image per service or product
 │       ├── gallery/              ← gallery photos if the site has a gallery
 │       └── team/                 ← team member photos for the About page
@@ -120,6 +135,7 @@ them. As a general rule:
 |---|---|
 | Logo | `assets/images/logo/` |
 | Hero background or feature image | `assets/images/hero/` |
+| Brand motif, pattern, texture, or reference images | `assets/images/brand/` |
 | Service or product photos | `assets/images/services/` |
 | Gallery photos | `assets/images/gallery/` |
 | Team member photos | `assets/images/team/` |
@@ -144,9 +160,10 @@ Open your project in your preferred AI tool and say:
 Read AGENT.md and start the client interview.
 ```
 
-The agent will ask which language to use, then walk through seven topics:
-business identity, business goal, SEO, branding, services, contact info, and
-pages needed. At the end it saves `website-brief.md`.
+The agent will ask which language to use, then walk through eleven topics:
+business identity, business goal, website format, SEO, branding, creative
+direction, home page sections, services, images, contact info, and site map.
+At the end it saves `website-brief.md`.
 
 To build a page:
 
