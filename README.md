@@ -160,9 +160,10 @@ Open your project in your preferred AI tool and say:
 Read AGENT.md and start the client interview.
 ```
 
-The agent will ask which language to use, then walk through eleven topics:
+The agent will ask which language to use, then walk through twelve topics:
 business identity, business goal, website format, SEO, branding, creative
-direction, home page sections, services, images, contact info, and site map.
+direction, home page sections, services, images, contact info, tracking and
+marketing scripts (Google Analytics, Hotjar, others), and site map.
 At the end it saves `website-brief.md`.
 
 To build a page:

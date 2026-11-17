@@ -118,6 +118,10 @@ Do not ask the client about things the guidelines already define.
   - `<link rel="canonical">` — use the domain from the brief
   - Open Graph tags: `og:title`, `og:description`, `og:url`, `og:type`
   - `<link rel="stylesheet" href="[page-name].css">`
+  - Every script listed in the brief's **Tracking & Marketing Scripts**
+    section (Google Analytics, Hotjar, additional scripts) in the
+    placement the brief specifies. Include them on every page and keep them
+    when modifying an existing page.
 - One `<h1>` per page — no exceptions
 - All images must have descriptive `alt` attributes
 - All internal links must use descriptive anchor text — never "click here"
@@ -152,6 +156,7 @@ Before delivering your output, verify every item on this list:
 - [ ] All images have alt text
 - [ ] Canonical tag is present
 - [ ] Open Graph tags are present
+- [ ] All tracking and marketing scripts from the brief are present
 - [ ] Internal links use descriptive anchor text
 
 **Design**
@@ -185,7 +190,9 @@ Before delivering your output, verify every item on this list:
 - Do not build more than one page per session
 - Do not create a build system, bundler, or package.json
 - Do not use CSS frameworks (Bootstrap, Tailwind, etc.)
-- Do not add JavaScript unless the brief explicitly requires it
+- Do not add JavaScript unless the brief explicitly requires it (the
+  scripts in the brief's Tracking & Marketing Scripts section count as
+  required)
 - Do not invent client content — if it's not in the brief, ask
 - Do not fall back on generic layouts or default styling when the brief's Creative Direction gives you a specific alternative
 - Do not reuse content across pages unless the template explicitly allows it

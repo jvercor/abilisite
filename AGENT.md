@@ -227,7 +227,20 @@ project, just drop your file in there."
 - Preferred contact method
 - Business hours (if relevant)
 
-**11. Site map**
+**11. Tracking and marketing scripts**
+
+Ask for each of these, one at a time. "None" is a valid answer; record it
+as "none" so later sessions don't ask again or add scripts on their own.
+- Google Analytics — Measurement ID (e.g. `G-XXXXXXXXXX`), or "none"
+- Hotjar — Site ID (number), or "none"
+- Any additional marketing script (Meta Pixel, Google Tag Manager, Google
+  Ads, LinkedIn Insight, etc.) — ask for the name and the exact snippet or
+  ID, and whether it goes in `<head>` or at the end of `<body>`. Repeat
+  until the client has nothing more to add.
+
+Save snippets exactly as the client provides them. Never invent IDs.
+
+**12. Site map**
 
 If multi-page: confirm pages — suggest Home, About, one per service, Contact.
 Ask about extras (FAQ, portfolio, blog, testimonials page).
@@ -372,6 +385,15 @@ Generate `website-brief.md` using the template below and save it at the root.
 - **Preferred contact method**: [client value]
 - **Business hours**: [client value or "not provided"]
 
+## Tracking & Marketing Scripts
+- **Google Analytics (Measurement ID)**: [G-XXXXXXXXXX or "none"]
+- **Hotjar (Site ID)**: [number or "none"]
+- **Additional scripts**: [one entry per script, or "none"]
+  - [Name] — placement: head / end of body
+    ```html
+    [exact snippet or ID provided by the client]
+    ```
+
 ## Site Map
 [If multi-page:]
 - Home
@@ -431,6 +453,15 @@ Use the section list from the brief's Site Map to build the page in order.
 Use anchor `id` attributes on each section for navigation links.
 
 Build one page (or the full one-page site) per session.
+
+### Tracking and marketing scripts
+
+The brief's **Tracking & Marketing Scripts** section applies to every page
+you build or modify, every time. Include Google Analytics (gtag.js) and
+Hotjar when an ID is given, plus every additional script, in the placement
+the brief specifies. Never drop them when editing an existing page. If the
+section is missing from the brief, ask the client once and save the answer
+to `website-brief.md`.
 
 ### Creative direction
 

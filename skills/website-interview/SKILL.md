@@ -369,7 +369,24 @@ their assigned folder paths.
 
 ---
 
-### TOPIC 11 — Site map
+### TOPIC 11 — Tracking and marketing scripts
+
+These are saved in the brief so every future build or edit includes them
+without the client having to repeat them. "None" is a valid answer — record
+it explicitly.
+
+1. Google Analytics Measurement ID (e.g. `G-XXXXXXXXXX`), or none.
+2. Hotjar Site ID (number), or none.
+3. Any additional marketing script (Meta Pixel, Google Tag Manager, Google
+   Ads, LinkedIn Insight, etc.): name, exact snippet or ID, and whether it
+   goes in `<head>` or at the end of `<body>`. Repeat until the client has
+   nothing more to add.
+
+Save snippets exactly as provided. Never invent IDs.
+
+---
+
+### TOPIC 12 — Site map
 
 **If multi-page:**
 Confirm the full list of pages. Suggest: Home, About, one page per service,
@@ -494,6 +511,15 @@ Then generate `website-brief.md` using the structure below.
 - **Serves**: in person / online / both
 - **Preferred contact method**: ...
 - **Business hours**: ...
+
+## Tracking & Marketing Scripts
+- **Google Analytics (Measurement ID)**: [G-XXXXXXXXXX or "none"]
+- **Hotjar (Site ID)**: [number or "none"]
+- **Additional scripts**: [one entry per script, or "none"]
+  - [Name] — placement: head / end of body
+    ```html
+    [exact snippet or ID provided by the client]
+    ```
 
 ## Site Map
 [If multi-page — list pages:]
